@@ -1,3 +1,7 @@
+import { program } from "commander";
+import createInitCommand from "@roninz/init";
+
 export default function (args) {
-  console.log(args);
+  createInitCommand(program)
+  program.parse(process.argv)
 }

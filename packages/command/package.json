@@ -1,34 +1,30 @@
 {
-  "name": "@roninz/cli",
+  "name": "@roninz/command",
   "version": "0.0.0",
   "description": "> TODO: description",
   "author": "Roninz <859444366@qq.com>",
-  "homepage": "",
+  "homepage": "https://github.com/ZLENGANG/roninz-cli#readme",
   "license": "ISC",
   "main": "lib/index.js",
-  "bin": {
-    "roninz-cli": "bin/cli.js"
-  },
   "directories": {
     "lib": "lib",
     "test": "__tests__"
   },
   "files": [
-    "lib",
-    "bin"
+    "lib"
   ],
   "publishConfig": {
     "registry": "https://registry.npmmirror.com/"
   },
-  "scripts": {
-    "test": "node ./__tests__/cli.test.js"
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZLENGANG/roninz-cli.git"
   },
-  "dependencies": {
-    "@roninz/init": "^0.0.0",
-    "@roninz/utils": "^0.0.0",
-    "commander": "^11.0.0",
-    "dirname-filename-esm": "^1.1.1",
-    "import-local": "^3.1.0"
+  "scripts": {
+    "test": "node ./__tests__/command.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/ZLENGANG/roninz-cli/issues"
   },
   "type": "module"
 }

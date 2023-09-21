@@ -1,0 +1,33 @@
+{
+  "name": "@roninz/init",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "Roninz <859444366@qq.com>",
+  "homepage": "https://github.com/ZLENGANG/roninz-cli#readme",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib",
+    "test": "__tests__"
+  },
+  "files": [
+    "lib"
+  ],
+  "publishConfig": {
+    "registry": "https://registry.npmmirror.com/"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZLENGANG/roninz-cli.git"
+  },
+  "scripts": {
+    "test": "node ./__tests__/init.test.js"
+  },
+  "bugs": {
+    "url": "https://github.com/ZLENGANG/roninz-cli/issues"
+  },
+  "type": "module",
+  "dependencies": {
+    "@roninz/command": "^0.0.0"
+  }
+}
