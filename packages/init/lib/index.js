@@ -18,7 +18,6 @@ class InitCommand extends Command {
   }
 
   action(params) {
-    console.log('init action');
   }
 }
 
