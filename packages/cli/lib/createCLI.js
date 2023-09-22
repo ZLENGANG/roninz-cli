@@ -29,7 +29,6 @@ export default function createCLI() {
 
   // 监听debug
   program.on('option:debug', function () {
-    console.log(program.opts());
     if (program.opts().debug) {
       log.verbose('debug', '运行debug模式')
     }

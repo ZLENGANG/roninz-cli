@@ -1,3 +1,3 @@
 export default function () {
-  return process.argv.includes('--debugger') || process.argv.includes('-d')
+  return process.argv.includes('--debug') || process.argv.includes('-d')
 }
