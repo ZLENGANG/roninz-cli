@@ -1,4 +1,5 @@
 import Command from "@roninz/command";
+import createTemp from "./createTemp.js";
 
 class InitCommand extends Command {
   get command() {
@@ -17,7 +18,11 @@ class InitCommand extends Command {
     ]
   }
 
-  action(params) {
+  action([name, opts]) {
+    // 1、创建模板
+    createTemp(name, opts)
+    // 2、下载模板
+    // 3、安装模板
   }
 }
 

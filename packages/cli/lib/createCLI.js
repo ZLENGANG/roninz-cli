@@ -23,7 +23,7 @@ export default function createCLI() {
     .usage('<command> [options]')
     .version(pkg.version)
     .option('-d, --debug', '是否开启全局模式', false)
-    .hook('postAction', () => {
+    .hook('preAction', () => {
       checkNodeVersion()
     })
 
