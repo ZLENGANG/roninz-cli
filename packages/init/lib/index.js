@@ -18,9 +18,10 @@ class InitCommand extends Command {
     ]
   }
 
-  action([name, opts]) {
+  async action([name, opts]) {
     // 1、创建模板
-    createTemp(name, opts)
+    const selectedTemplate = await createTemp(name, opts)
+    console.log(selectedTemplate);
     // 2、下载模板
     // 3、安装模板
   }

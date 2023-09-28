@@ -1,4 +1,6 @@
-import { makeList, makeInput } from "@roninz/utils";
+import { makeList, makeInput, getLatestVersion } from "@roninz/utils";
+import { homedir } from 'node:os'
+import path from "node:path";
 
 const ADD_TYPE_PROJECT = 'project'
 const ADD_TYPE_PAGE = 'page'
@@ -26,6 +28,8 @@ const ADD_TEMPLATE = [
     version: "0.0.0"
   }
 ]
+const TEMP_HOME = '.roninz-cli';
+
 
 // 获取创建类型
 function getAddType() {
@@ -48,6 +52,7 @@ function getAddName() {
   })
 }
 
+// 选择项目模板
 function getAddTemp() {
   return makeList({
     choices: ADD_TEMPLATE,
@@ -55,32 +60,42 @@ function getAddTemp() {
   })
 }
 
+// 安装缓存目录
+function makeTargetPath() {
+  return path.resolve(`${homedir()}/${TEMP_HOME}`, 'addTemplate');
+}
+
 export default async function createTemp(name, opts) {
   console.log(opts);
   const { type, template } = opts
 
-  let addName = name || await getAddName()
   let addType = type || await getAddType()
   let selectedTemplate = null
 
-  if (template) {
-    selectedTemplate = ADD_TEMPLATE.find(item => item.value === template)
-    if (!selectedTemplate) {
-      throw new Error(`项目模板 ${template} 不存在！`);
-    }
-  } else {
-    const temp = await getAddTemp()
-    selectedTemplate = ADD_TEMPLATE.find(item => item.value === temp)
-  }
-
-  // 获取最新版本号
-  
-
-  console.log(selectedTemplate);
-
-
   if (addType === ADD_TYPE_PROJECT) {
+    let addName = name || await getAddName()
+    if (template) {
+      selectedTemplate = ADD_TEMPLATE.find(item => item.value === template)
+      if (!selectedTemplate) {
+        throw new Error(`项目模板 ${template} 不存在！`);
+      }
+    } else {
+      const temp = await getAddTemp()
+      selectedTemplate = ADD_TEMPLATE.find(item => item.value === temp)
+    }
 
+    // 获取最新版本号
+    const latestVersion = await getLatestVersion(selectedTemplate.npmName)
+    selectedTemplate.value = latestVersion
+
+    const targetPath = makeTargetPath();
+
+    return {
+      type: addType,
+      name: addName,
+      template: selectedTemplate,
+      targetPath,
+    }
   } else {
     throw new Error(`创建的类型${addType}暂不支持！`)
   }
