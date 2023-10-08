@@ -1,5 +1,6 @@
 import Command from "@roninz/command";
 import createTemp from "./createTemp.js";
+import downloadTemp from "./downloadTemp.js";
 
 class InitCommand extends Command {
   get command() {
@@ -21,8 +22,10 @@ class InitCommand extends Command {
   async action([name, opts]) {
     // 1、创建模板
     const selectedTemplate = await createTemp(name, opts)
-    console.log(selectedTemplate);
+
     // 2、下载模板
+    await downloadTemp(selectedTemplate)
+
     // 3、安装模板
   }
 }

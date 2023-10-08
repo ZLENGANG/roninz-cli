@@ -86,7 +86,7 @@ export default async function createTemp(name, opts) {
 
     // 获取最新版本号
     const latestVersion = await getLatestVersion(selectedTemplate.npmName)
-    selectedTemplate.value = latestVersion
+    selectedTemplate.version = latestVersion
 
     const targetPath = makeTargetPath();
 
