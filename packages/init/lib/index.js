@@ -1,6 +1,7 @@
 import Command from "@roninz/command";
 import createTemp from "./createTemp.js";
 import downloadTemp from "./downloadTemp.js";
+import installTemp from "./installTemp.js";
 
 class InitCommand extends Command {
   get command() {
@@ -27,6 +28,7 @@ class InitCommand extends Command {
     await downloadTemp(selectedTemplate)
 
     // 3、安装模板
+    await installTemp(selectedTemplate, opts)
   }
 }
 

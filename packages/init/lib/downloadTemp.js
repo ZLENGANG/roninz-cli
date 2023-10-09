@@ -18,7 +18,7 @@ function makeCacheDir(targetPath) {
   }
 }
 
-async function downloadRealTenp(targetPath, selectedTemplate) {
+async function downloadRealTemp(targetPath, selectedTemplate) {
   const { npmName, version } = selectedTemplate
   const installCommand = "npm"
   const installArgs = ['install', `${npmName}@${version}`]
@@ -33,7 +33,7 @@ export default async function downloadTemp(selectedTemplate) {
   makeCacheDir(targetPath)
   const loading = ora('正在下载模板...').start()
   try {
-    await downloadRealTenp(targetPath, template)
+    await downloadRealTemp(targetPath, template)
     loading.stop()
     log.success('下载模板成功');
   } catch (error) {
