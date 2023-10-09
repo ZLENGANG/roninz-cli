@@ -66,7 +66,6 @@ function makeTargetPath() {
 }
 
 export default async function createTemp(name, opts) {
-  console.log(opts);
   const { type, template } = opts
 
   let addType = type || await getAddType()

@@ -28,6 +28,10 @@
   },
   "type": "module",
   "dependencies": {
-    "@roninz/command": "^0.0.0"
+    "@roninz/command": "^0.0.0",
+    "execa": "^8.0.1",
+    "fs-extra": "^11.1.1",
+    "ora": "^7.0.1",
+    "path-exists": "^5.0.0"
   }
 }
